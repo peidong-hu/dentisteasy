@@ -14,6 +14,16 @@
 	
 	<ate:homePage id="publicHomePage" homeUrl="http://www.dentistaround.com/public"
 		parent="myAbstractPageObject" />
+
+	<ate:myWebElement id="publicLoginLinkWE" parent="myBasePageModel">
+		<constructor-arg ref="loginLinkEF" />
+		<constructor-arg ref="loginLinkEA" />
+	</ate:myWebElement>
+	<ate:elementFindByXpath id="loginLinkEF"
+		findByValue="//a[@href='/public/login']" />
+	<ate:clickAction id="loginLinkEA"/>
+
+
 		
 	<ate:pagePropertyCorrectnessAsserter
 		id="publicHomePagePropertyAsserter">

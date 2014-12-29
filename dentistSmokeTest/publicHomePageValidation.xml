@@ -15,7 +15,7 @@
 	<import resource="pageObjects/lastPage.xml" />
 	
 	<ate:testCase id="testcase" testCaseName="Validate public home page">
-		<ate:homeStep id="openPublichHomePage" stepName="openPublicHomePage"
+		<ate:homeStep id="openPublicHomePage" stepName="openPublicHomePage"
 			stepDescription="open my public home page" targetStep="true">
 			<property name="homepg">
 				<ref bean="publicHomePage" />

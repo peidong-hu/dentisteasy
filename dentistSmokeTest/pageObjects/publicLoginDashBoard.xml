@@ -12,26 +12,26 @@
 	<import resource="classpath:META-INF/logger-reporter.xml" />
 	<import resource="classpath:META-INF/abstract_parent_bean2.xml" />
 	
-	<ate:homePage id="publicHomePage" homeUrl="http://www.dentistaround.com/public"
+	<ate:regularPage id="publicLoginDashBoard" 
 		parent="myAbstractPageObject" />
 		
 	<ate:pagePropertyCorrectnessAsserter
-		id="publicHomePagePropertyAsserter">
-		<constructor-arg ref="publicHomePage" />
+		id="publicLoginDashBoardPropertyAsserter">
+		<constructor-arg ref="publicLoginDashBoard" />
 		<property name="stepERValue">
-			<ref bean="publicHomePageValidationValue" />
+			<ref bean="publicLoginDashBoardValidationValue" />
 		</property>
 	</ate:pagePropertyCorrectnessAsserter>
 
-	<ate:pageElementExistenceAsserter id="publicHomePageElementExistenceAsserter">
-		<constructor-arg ref="publicHomePage" />
+	<ate:pageElementExistenceAsserter id="publicLoginDashBoardElementExistenceAsserter">
+		<constructor-arg ref="publicLoginDashBoard" />
 		<property name="stepERValue">
-			<ref bean="publicHomePageValidationValue" />
+			<ref bean="publicLoginDashBoardValidationValue" />
 		</property>
 	</ate:pageElementExistenceAsserter>
 
-	<ate:stepExpectedResultValue id="publicHomePageValidationValue"
-		dataValueID="publicHomePageVID" parent="baseERValue" />
+	<ate:stepExpectedResultValue id="publicLoginDashBoardValidationValue"
+		dataValueID="loginDashboardVID" parent="baseERValue" />
 
 	
 </beans>

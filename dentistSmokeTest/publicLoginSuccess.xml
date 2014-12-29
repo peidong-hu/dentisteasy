@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:ate="http://www.bigtester.org/schema/ate" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd 
+	http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+	http://www.bigtester.org/schema/ate http://www.bigtester.org/schema/ate/ate.xsd">
+	<!-- this registers beans annotated with @Aspect -->
+	<aop:aspectj-autoproxy />
+
+	<import resource="classpath:META-INF/logger-reporter.xml" />
+	<import resource="classpath:META-INF/abstract_parent_bean2.xml" />
+	<import resource="pageObjects/publicHomePage.xml" />
+	<import resource="pageObjects/publicLoginDashBoard.xml" />
+	<import resource="pageObjects/lastPage.xml" />
+
+
+	<ate:testCase id="testcase" testCaseName="Validate public login and logout">
+		<ate:homeStep id="openPublicHomePage" stepName="openPublicHomePage"
+			stepDescription="open my public home page" targetStep="false">
+			<property name="homepg">
+				<ref bean="publicHomePage" />
+			</property>
+<!-- 			<property name="expectedResultAsserter"> -->
+<!-- 				<list> -->
+<!-- 					<ref bean="publicHomePageElementExistenceAsserter" /> -->
+<!-- 					<ref bean="publicHomePagePropertyAsserter" /> -->
+<!-- 				</list> -->
+<!-- 			</property> -->
+		</ate:homeStep>
+		<ate:elementStep id="publicLogin_clickLoginLink"
+			stepDescription="Click login link to log in" stepName="clickLoginLink"
+			targetStep="true" myWebElement="publicLoginLinkWE">
+		</ate:elementStep>
+		<ate:elementStep id="publicLogin_typeUsername"
+			stepDescription="type in public user name" stepName="typeUsername"
+			targetStep="true" myWebElement="loginUserNameWE">
+		</ate:elementStep>
+		<ate:elementStep id="publicLogin_typePassword"
+			stepDescription="type in public user password" stepName="typePassword"
+			targetStep="true" myWebElement="loginPasswordWE">
+		</ate:elementStep>
+		<ate:elementStep id="publicLogin_clickLoginButton"
+			stepDescription="click Login button to log in" stepName="clickLoginButton"
+			targetStep="true" myWebElement="clickLoginButtonWE">
+			<property name="pageObject">
+				<ref bean="publicLoginDashBoard" />
+			</property>
+			<property name="expectedResultAsserter">
+				<list>
+					<ref bean="publicLoginDashBoardPropertyAsserter" />
+					<ref bean="publicLoginDashBoardElementExistenceAsserter" />
+				</list>
+			</property>
+		</ate:elementStep>
+		<ate:elementStep id="publicLogin_clickLogoutLink"
+			stepDescription="logout patient" stepName="logoutPatient"
+			targetStep="false" myWebElement="logoutPatientWE">
+		</ate:elementStep>
+		<ate:lastStep id="mylaststep" stepName="mylaststep"
+			stepDescription="last step close browser" targetStep="false">
+			<property name="lastPage">
+				<ref bean="myLastPage" />
+			</property>
+		</ate:lastStep>
+	</ate:testCase>
+
+	<!-- step publicLogin_clickLoginLink myWebElement definition -->
+	<ate:myWebElement id="publicLoginLinkWE" parent="myBasePageModel">
+		<constructor-arg ref="loginLinkEF" />
+		<constructor-arg ref="loginLinkEA" />
+	</ate:myWebElement>
+	<ate:elementFindByXpath id="loginLinkEF"
+		findByValue="//a[@href='/public/login']" />
+	<ate:clickAction id="loginLinkEA"/>
+	
+
+	<!-- step publicLogin_typeUsername myWebElement definition -->
+	<ate:myWebElement id="loginUserNameWE" parent="myBasePageModel">
+		<constructor-arg ref="loginUserNameEF" />
+		<constructor-arg ref="loginUserNameEA" />
+	</ate:myWebElement>
+	<ate:elementFindById id="loginUserNameEF"
+		findByValue="email_login" />
+	<ate:sendKeysAction id="loginUserNameEA" dataValue="userNameValue" />
+	<ate:stepDataValue id="userNameValue" dataValueID="1"
+		parent="baseInputDataValue" />
+
+
+	<!-- step publicLogin_typePassword myWebElement definition -->
+	<ate:myWebElement id="loginPasswordWE" parent="myBasePageModel">
+		<constructor-arg ref="loginPasswordEF" />
+		<constructor-arg ref="loginPasswordEA" />
+	</ate:myWebElement>
+	<ate:elementFindByXpath id="loginPasswordEF"
+		findByValue="//input[@type='password']" />
+	<ate:sendKeysAction id="loginPasswordEA" dataValue="passwordValue" />
+	<ate:stepDataValue id="passwordValue" dataValueID="3"
+		parent="baseInputDataValue" />
+
+	<!-- step publicLogin_clickLoginbutton myWebElement definition -->
+	<ate:myWebElement id="clickLoginButtonWE" parent="myBasePageModel">
+		<constructor-arg ref="loginButtonEF" />
+		<constructor-arg ref="loginButtonEA" />
+	</ate:myWebElement>
+	<ate:elementFindByXpath id="loginButtonEF"
+		findByValue="//button[@type='submit']" />
+	<ate:clickAction id="loginButtonEA"/>
+
+	<!-- step publicLogin_clickLogoutLInk myWebElement definition -->
+	<ate:myWebElement id="logoutPatientWE" parent="myBasePageModel">
+		<constructor-arg ref="logoutPatientEF" />
+		<constructor-arg ref="logoutPatientEA" />
+	</ate:myWebElement>
+	<ate:elementFindByXpath id="logoutPatientEF"
+		findByValue="//a[@href='/logoutPatient']" />
+	<ate:clickAction id="logoutPatientEA"/>
+
+
+</beans>

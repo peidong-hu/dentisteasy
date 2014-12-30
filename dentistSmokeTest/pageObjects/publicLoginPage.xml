@@ -78,7 +78,7 @@
 	<ate:stepDataValue id="wrongPasswordValue"
 		dataValueID="4" parent="baseInputDataValue" />
 
-	<!-- step publicLogin_clickLoginbutton myWebElement definition -->
+	<!-- myWebElement definition -->
 	<ate:myWebElement id="clickLoginButtonWE" parent="myBasePageModel">
 		<constructor-arg ref="loginButtonEF" />
 		<constructor-arg ref="loginButtonEA" />
@@ -87,5 +87,13 @@
 		findByValue="//button[@type='submit']" />
 	<ate:clickAction id="loginButtonEA" />
 
+	<!-- myWebElement definition -->
+	<ate:myWebElement id="logoutPatientWE" parent="myBasePageModel">
+		<constructor-arg ref="logoutPatientEF" />
+		<constructor-arg ref="logoutPatientEA" />
+	</ate:myWebElement>
+	<ate:elementFindByXpath id="logoutPatientEF"
+		findByValue="//a[@href='/logoutPatient']" />
+	<ate:clickAction id="logoutPatientEA"/>
 
 </beans>

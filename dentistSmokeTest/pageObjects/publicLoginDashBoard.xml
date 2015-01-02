@@ -5,15 +5,16 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd 
 	http://www.springframework.org/schema/aop 
 	http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
-	http://www.bigtester.org/schema/ate http://www.bigtester.org/schema/ate/ate.xsd">
+	http://www.bigtester.org/schema/ate http://www.bigtester.org/schema/ate/ate.xsd"
+	>
 	<!-- this registers beans annotated with @Aspect -->
-	<aop:aspectj-autoproxy />
+	<aop:aspectj-autoproxy/>
 
 	<import resource="classpath:META-INF/logger-reporter.xml" />
 	<import resource="classpath:META-INF/abstract_parent_bean2.xml" />
 	
 	<ate:regularPage id="publicLoginDashBoard" 
-		parent="myAbstractPageObject" />
+		parent="myAbstractPageObject" dataFile="dentistSmokeTest/pageObjects/publicLoginDashBoard.data.xml"/>
 		
 	<ate:pagePropertyCorrectnessAsserter
 		id="publicLoginDashBoardPropertyAsserter">
@@ -32,6 +33,15 @@
 
 	<ate:stepExpectedResultValue id="publicLoginDashBoardValidationValue"
 		dataValueID="loginDashboardVID" parent="baseERValue" />
+
+<!-- LogoutLInk myWebElement definition -->
+	<ate:myWebElement id="logoutPatientWE" parent="myBasePageModel">
+		<constructor-arg ref="logoutPatientEF" />
+		<constructor-arg ref="logoutPatientEA" />
+	</ate:myWebElement>
+	<ate:elementFindByXpath id="logoutPatientEF"
+		findByValue="//a[@href='/logoutPatient']" />
+	<ate:clickAction id="logoutPatientEA"/>
 
 	
 </beans>

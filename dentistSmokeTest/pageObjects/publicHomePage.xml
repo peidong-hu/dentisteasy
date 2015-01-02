@@ -5,14 +5,15 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd 
 	http://www.springframework.org/schema/aop 
 	http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
-	http://www.bigtester.org/schema/ate http://www.bigtester.org/schema/ate/ate.xsd">
+	http://www.bigtester.org/schema/ate http://www.bigtester.org/schema/ate/ate.xsd"
+	>
 	<!-- this registers beans annotated with @Aspect -->
 	<aop:aspectj-autoproxy />
 
 	<import resource="classpath:META-INF/logger-reporter.xml" />
 	<import resource="classpath:META-INF/abstract_parent_bean2.xml" />
 	
-	<ate:homePage id="publicHomePage" homeUrl="http://www.dentistaround.com/public"
+	<ate:homePage id="publicHomePage" homeUrl="http://www.dentisteasy.com/public" dataFile="dentistSmokeTest/pageObjects/publicHomePage.data.xml"
 		parent="myAbstractPageObject" />
 
 	<ate:myWebElement id="publicLoginLinkWE" parent="myBasePageModel">

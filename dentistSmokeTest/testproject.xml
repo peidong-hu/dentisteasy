@@ -13,13 +13,14 @@
 	
 	<ate:GenericSystemLogger id="systemlogger"/>
 	<ate:TestStepResult id="TestStepResult"/>
-	<ate:TestDatabaseInitializer id="dbInitializer" initXmlFile="dentistSmokeTest/data.xml"/>
+	<ate:TestDatabaseInitializer id="dbInitializer"/>
+
 	
-	<ate:TestProject id="testproject" stepThinkTime="2">
+	<ate:TestProject id="testproject" stepThinkTime="2" globalInitXmlFile="dentistSmokeTest/data.xml">
 		<ate:TestSuite id="frontend_login_suite" suiteName="frontend_login_suite">
-			<ate:XmlTestCase id="homepageValidation" testCaseName="dentistSmokeTest/publicHomePageValidation.xml"/>
-			<ate:XmlTestCase id="publicLoginSuccess" testCaseName="dentistSmokeTest/publicLoginSuccess.xml"/>
-			<ate:XmlTestCase id="publicWrongPasswordLogin" testCaseName="dentistSmokeTest/publicWrongPasswordLogin.xml"/>  
+			<ate:XmlTestCase id="homepageValidation" testCaseName="dentistSmokeTest/frontend_login_suite/publicHomePageValidation.xml"/>
+			<ate:XmlTestCase id="publicLoginSuccess" testCaseName="dentistSmokeTest/frontend_login_suite/publicLoginSuccess.xml"/> 
+			<ate:XmlTestCase id="publicLoginWrongPassword" testCaseName="dentistSmokeTest/frontend_login_suite/publicWrongPasswordLogin.xml"/>
 		</ate:TestSuite>
 <!-- 		<ate:TestSuite id="suite02" suiteName="suite02"> -->
 <!-- 			<ate:XmlTestCase id="tc02" testCaseName="classpath:TestCase1.xml"/> -->

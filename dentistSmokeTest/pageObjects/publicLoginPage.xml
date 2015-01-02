@@ -5,14 +5,15 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd 
 	http://www.springframework.org/schema/aop 
 	http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
-	http://www.bigtester.org/schema/ate http://www.bigtester.org/schema/ate/ate.xsd">
+	http://www.bigtester.org/schema/ate http://www.bigtester.org/schema/ate/ate.xsd"
+	>
 	<!-- this registers beans annotated with @Aspect -->
-	<aop:aspectj-autoproxy />
+	<aop:aspectj-autoproxy/>
 
 	<import resource="classpath:META-INF/logger-reporter.xml" />
 	<import resource="classpath:META-INF/abstract_parent_bean2.xml" />
 
-	<ate:regularPage id="publicLoginPage" parent="myAbstractPageObject" />
+	<ate:regularPage id="publicLoginPage" parent="myAbstractPageObject" dataFile="dentistSmokeTest/pageObjects/publicLoginPage.data.xml"/>
 
 	<ate:pagePropertyCorrectnessAsserter
 		id="publicLoginPagePropertyAsserter">
@@ -78,7 +79,7 @@
 	<ate:stepDataValue id="wrongPasswordValue"
 		dataValueID="4" parent="baseInputDataValue" />
 
-	<!-- myWebElement definition -->
+	<!-- step publicLogin_clickLoginbutton myWebElement definition -->
 	<ate:myWebElement id="clickLoginButtonWE" parent="myBasePageModel">
 		<constructor-arg ref="loginButtonEF" />
 		<constructor-arg ref="loginButtonEA" />
@@ -87,13 +88,5 @@
 		findByValue="//button[@type='submit']" />
 	<ate:clickAction id="loginButtonEA" />
 
-	<!-- myWebElement definition -->
-	<ate:myWebElement id="logoutPatientWE" parent="myBasePageModel">
-		<constructor-arg ref="logoutPatientEF" />
-		<constructor-arg ref="logoutPatientEA" />
-	</ate:myWebElement>
-	<ate:elementFindByXpath id="logoutPatientEF"
-		findByValue="//a[@href='/logoutPatient']" />
-	<ate:clickAction id="logoutPatientEA"/>
 
 </beans>

@@ -11,8 +11,9 @@
 
 	<import resource="classpath:META-INF/logger-reporter.xml" />
 	<import resource="classpath:META-INF/abstract_parent_bean2.xml" />
-	<import resource="pageObjects/publicHomePage.xml" />
-	<import resource="pageObjects/lastPage.xml" />
+	<import resource="classpath:META-INF/case_base_bean.xml" />
+	<import resource="../pageObjects/publicHomePage.xml" />
+	<import resource="../pageObjects/lastPage.xml" />
 	
 	<ate:testCase id="testcase" testCaseName="Validate public home page">
 		<ate:homeStep id="openPublicHomePage" stepName="openPublicHomePage"

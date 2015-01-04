@@ -21,9 +21,10 @@
 			<ate:XmlTestCase id="homepageValidation" testCaseName="dentistSmokeTest/frontend_login_suite/publicHomePageValidation.xml"/>
 			<ate:XmlTestCase id="publicLoginSuccess" testCaseName="dentistSmokeTest/frontend_login_suite/publicLoginSuccess.xml"/> 
 			<ate:XmlTestCase id="publicLoginWrongPassword" testCaseName="dentistSmokeTest/frontend_login_suite/publicWrongPasswordLogin.xml"/>
+			
 		</ate:TestSuite>
-<!-- 		<ate:TestSuite id="suite02" suiteName="suite02"> -->
-<!-- 			<ate:XmlTestCase id="tc02" testCaseName="classpath:TestCase1.xml"/> -->
-<!-- 		</ate:TestSuite> -->
+		<ate:TestSuite id="booking_suite" suiteName="booking_suite">
+			<ate:XmlTestCase id="bookingClinicC" testCaseName="dentistSmokeTest/booking_suite/publicClinicCBooking.xml"/>
+		</ate:TestSuite>
 	</ate:TestProject>
 </beans>

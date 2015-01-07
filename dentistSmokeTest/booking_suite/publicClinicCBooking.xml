@@ -36,6 +36,12 @@
 			stepDescription="type in Location_Input" stepName="Location_Input"
 			targetStep="true" myWebElement="Location_Input">
 		</ate:elementStep>
+		
+		<ate:elementStep id="clickFirstLocation"
+			stepDescription="click first location" stepName="clickfirstLocation"
+			targetStep="true" myWebElement="LocationList">
+		</ate:elementStep>
+		
 		<ate:elementStep id="clickDate_Selector"
 			stepDescription="click Date_Selector" stepName="Date_Selector"
 			targetStep="true" myWebElement="Date_Selector">

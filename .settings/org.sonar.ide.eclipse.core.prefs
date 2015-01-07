@@ -1,0 +1,5 @@
+eclipse.preferences.version=1
+extraProperties=sonar.host.url\=http\://192.168.10.106\:9000\r\nsonar.jdbc.password\=1234567\r\nsonar.jdbc.username\=sonar\r\nsonar.jdbc.url\=jdbc\:mysql\://192.168.10.106\:3306/sonar?useUnicode\=true&characterEncoding\=utf8
+projectKey=com.bigtester\:com.bigtester.dentistaround.atescripts
+serverUrl=http\://192.168.10.106\:9000
+version=2

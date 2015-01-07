@@ -82,6 +82,14 @@
 	<ate:elementFindByXpath id="Book_Button_EF"
 		findByValue="//a[contains(@href, '/public/practice?practiceId=')]" />
 	<ate:clickAction id="Book_Button_EA" />
+	
+	<ate:myWebElement id="LocationList" parent="myBasePageModel">
+		<constructor-arg ref="LocationList_EF" />
+		<constructor-arg ref="LocationList_EA" />
+	</ate:myWebElement>
+	<ate:elementFindByXpath id="LocationList_EF"
+		findByValue="//div[@class='pac-item'][1]" />
+	<ate:clickAction id="LocationList_EA" />
 
 	<ate:pagePropertyCorrectnessAsserter
 		id="publicHomePagePropertyAsserter">

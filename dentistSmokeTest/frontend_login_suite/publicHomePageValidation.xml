@@ -10,17 +10,14 @@
 	<aop:aspectj-autoproxy />
 
 	<import resource="classpath:META-INF/logger-reporter.xml" />
-	<import resource="classpath:META-INF/abstract_parent_bean2.xml" />
+	<import resource="classpath:META-INF/page_base_bean.xml" />
 	<import resource="classpath:META-INF/case_base_bean.xml" />
 	<import resource="../pageObjects/publicHomePage.xml" />
 	<import resource="../pageObjects/lastPage.xml" />
 	
 	<ate:testCase id="testcase" testCaseName="Validate public home page">
 		<ate:homeStep id="openPublicHomePage" stepName="openPublicHomePage"
-			stepDescription="open my public home page" targetStep="true">
-			<property name="homepg">
-				<ref bean="publicHomePage" />
-			</property>
+			stepDescription="open my public home page" targetStep="true" pageObject="publicHomePage">
 			<property name="expectedResultAsserter">
 				<list>
 					<ref bean="publicHomePageElementExistenceAsserter" />
@@ -29,11 +26,7 @@
 			</property>
 		</ate:homeStep>
 		<ate:lastStep id="mylaststep" stepName="mylaststep"
-			stepDescription="last step close browser" targetStep="false">
-			<property name="lastPage">
-				<ref bean="myLastPage" />
-			</property>
-		</ate:lastStep>
+			stepDescription="last step close browser" targetStep="false" pageObject="myLastPage"/>
 	</ate:testCase>
 	
 </beans>

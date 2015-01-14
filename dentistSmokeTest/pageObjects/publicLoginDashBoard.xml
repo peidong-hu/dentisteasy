@@ -11,37 +11,25 @@
 	<aop:aspectj-autoproxy/>
 
 	<import resource="classpath:META-INF/logger-reporter.xml" />
-	<import resource="classpath:META-INF/abstract_parent_bean2.xml" />
+	<import resource="classpath:META-INF/page_base_bean.xml" />
 	
 	<ate:regularPage id="publicLoginDashBoard" 
-		parent="myAbstractPageObject" dataFile="dentistSmokeTest/pageObjects/publicLoginDashBoard.data.xml"/>
+		parent="myBasePageObject" dataFile="dentistSmokeTest/pageObjects/publicLoginDashBoard.data.xml"/>
 		
 	<ate:pagePropertyCorrectnessAsserter
-		id="publicLoginDashBoardPropertyAsserter">
-		<constructor-arg ref="publicLoginDashBoard" />
-		<property name="stepERValue">
-			<ref bean="publicLoginDashBoardValidationValue" />
-		</property>
-	</ate:pagePropertyCorrectnessAsserter>
+		id="publicLoginDashBoardPropertyAsserter" resultPage="publicLoginDashBoard" stepERValue="publicLoginDashBoardValidationValue"/>
 
-	<ate:pageElementExistenceAsserter id="publicLoginDashBoardElementExistenceAsserter">
-		<constructor-arg ref="publicLoginDashBoard" />
-		<property name="stepERValue">
-			<ref bean="publicLoginDashBoardValidationValue" />
-		</property>
-	</ate:pageElementExistenceAsserter>
+	<ate:pageElementExistenceAsserter id="publicLoginDashBoardElementExistenceAsserter" resultPage="publicLoginDashBoard" stepERValue="publicLoginDashBoardValidationValue" />
 
 	<ate:stepExpectedResultValue id="publicLoginDashBoardValidationValue"
 		dataValueID="loginDashboardVID" parent="baseERValue" />
 
 <!-- LogoutLInk myWebElement definition -->
-	<ate:myWebElement id="logoutPatientWE" parent="myBasePageModel">
-		<constructor-arg ref="logoutPatientEF" />
-		<constructor-arg ref="logoutPatientEA" />
+	<ate:myWebElement id="logoutPatientWE" parent="myBasePageModel" elementFind="logoutPatientEF" elementAction="logoutPatientEA">
 	</ate:myWebElement>
 	<ate:elementFindByXpath id="logoutPatientEF"
 		findByValue="//a[@href='/logoutPatient']" />
-	<ate:clickAction id="logoutPatientEA"/>
+	<ate:clickAction id="logoutPatientEA" parent="baseElementAction"/>
 
 	
 </beans>

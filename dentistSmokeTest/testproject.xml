@@ -12,7 +12,7 @@
 	<import resource="classpath:META-INF/db-services.xml" />
 	
 	<ate:GenericSystemLogger id="systemlogger"/>
-	<ate:TestStepResult id="TestStepResult"/>
+<!-- 	<ate:TestStepResult id="TestStepResult"/> -->
 	<ate:TestDatabaseInitializer id="dbInitializer"/>
 
 	

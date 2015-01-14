@@ -11,82 +11,60 @@
 	<aop:aspectj-autoproxy/>
 
 	<import resource="classpath:META-INF/logger-reporter.xml" />
-	<import resource="classpath:META-INF/abstract_parent_bean2.xml" />
+	<import resource="classpath:META-INF/page_base_bean.xml" />
 
-	<ate:regularPage id="publicLoginPage" parent="myAbstractPageObject" dataFile="dentistSmokeTest/pageObjects/publicLoginPage.data.xml"/>
+	<ate:regularPage id="publicLoginPage" parent="myBasePageObject" dataFile="dentistSmokeTest/pageObjects/publicLoginPage.data.xml"/>
 
 	<ate:pagePropertyCorrectnessAsserter
-		id="publicLoginPagePropertyAsserter">
-		<constructor-arg ref="publicLoginPage" />
-		<property name="stepERValue">
-			<ref bean="publicLoginPageValidationValue" />
-		</property>
-	</ate:pagePropertyCorrectnessAsserter>
+		id="publicLoginPagePropertyAsserter" resultPage="publicLoginPage" stepERValue="publicLoginPageValidationValue"/>
 
 	<ate:pageElementExistenceAsserter
-		id="publicLoginPageElementExistenceAsserter">
-		<constructor-arg ref="publicLoginPage" />
-		<property name="stepERValue">
-			<ref bean="publicLoginPageValidationValue" />
-		</property>
-	</ate:pageElementExistenceAsserter>
+		id="publicLoginPageElementExistenceAsserter" resultPage="publicLoginPage" stepERValue="publicLoginPageValidationValue" />
+		
 
 	<ate:stepExpectedResultValue id="publicLoginPageValidationValue"
 		dataValueID="publicLoginPageVID" parent="baseERValue" />
 
 	<ate:pageElementExistenceAsserter
-		id="publicLoginWrongPasswdElementExistenceAsserter">
-		<constructor-arg ref="publicLoginPage" />
-		<property name="stepERValue">
-			<ref bean="publicLoginWrongPasswdValidationValue" />
-		</property>
-	</ate:pageElementExistenceAsserter>
+		id="publicLoginWrongPasswdElementExistenceAsserter" resultPage="publicLoginPage" stepERValue="publicLoginWrongPasswdValidationValue" />
 
 	<ate:stepExpectedResultValue id="publicLoginWrongPasswdValidationValue"
 		dataValueID="publicLoginWrongPasswdVID" parent="baseERValue" />
 
 
 	<!-- myWebElement definition -->
-	<ate:myWebElement id="loginUserNameWE" parent="myBasePageModel">
-		<constructor-arg ref="loginUserNameEF" />
-		<constructor-arg ref="loginUserNameEA" />
+	<ate:myWebElement id="loginUserNameWE" parent="myBasePageModel" elementFind="loginUserNameEF" elementAction="loginUserNameEA">
 	</ate:myWebElement>
 	<ate:elementFindById id="loginUserNameEF"
 		findByValue="email_login" />
-	<ate:sendKeysAction id="loginUserNameEA" dataValue="userNameValue" />
-	<ate:stepDataValue id="userNameValue" dataValueID="1"
+	<ate:sendKeysAction id="loginUserNameEA" dataValue="userNameValue" parent="baseElementAction"/>
+	<ate:stepInputDataValue id="userNameValue" dataValueID="1"
 		parent="baseInputDataValue" />
 
 
 	<!-- myWebElement definition -->
-	<ate:myWebElement id="loginPasswordWE" parent="myBasePageModel">
-		<constructor-arg ref="loginPasswordEF" />
-		<constructor-arg ref="loginPasswordEA" />
+	<ate:myWebElement id="loginPasswordWE" parent="myBasePageModel" elementFind="loginPasswordEF" elementAction="loginPasswordEA">
 	</ate:myWebElement>
 	<ate:elementFindByXpath id="loginPasswordEF"
 		findByValue="//input[@type='password']" />
-	<ate:sendKeysAction id="loginPasswordEA" dataValue="passwordValue" />
-	<ate:stepDataValue id="passwordValue" dataValueID="3"
+	<ate:sendKeysAction id="loginPasswordEA" dataValue="passwordValue" parent="baseElementAction"/>
+	<ate:stepInputDataValue id="passwordValue" dataValueID="3"
 		parent="baseInputDataValue" />
 
 	<!-- myWebElement definition -->
-	<ate:myWebElement id="loginWrongPasswordWE" parent="myBasePageModel">
-		<constructor-arg ref="loginPasswordEF" />
-		<constructor-arg ref="loginWrongPasswordEA" />
+	<ate:myWebElement id="loginWrongPasswordWE" parent="myBasePageModel" elementFind="loginPasswordEF" elementAction="loginWrongPasswordEA">
 	</ate:myWebElement>
 	<ate:sendKeysAction id="loginWrongPasswordEA"
-		dataValue="wrongPasswordValue" />
-	<ate:stepDataValue id="wrongPasswordValue"
+		dataValue="wrongPasswordValue" parent="baseElementAction"/>
+	<ate:stepInputDataValue id="wrongPasswordValue"
 		dataValueID="4" parent="baseInputDataValue" />
 
 	<!-- step publicLogin_clickLoginbutton myWebElement definition -->
-	<ate:myWebElement id="clickLoginButtonWE" parent="myBasePageModel">
-		<constructor-arg ref="loginButtonEF" />
-		<constructor-arg ref="loginButtonEA" />
+	<ate:myWebElement id="clickLoginButtonWE" parent="myBasePageModel" elementFind="loginButtonEF" elementAction="loginButtonEA">
 	</ate:myWebElement>
 	<ate:elementFindByXpath id="loginButtonEF"
 		findByValue="//button[@type='submit']" />
-	<ate:clickAction id="loginButtonEA" />
+	<ate:clickAction id="loginButtonEA" parent="baseElementAction"/>
 
 
 </beans>

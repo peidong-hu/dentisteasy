@@ -10,8 +10,8 @@
 	<aop:aspectj-autoproxy />
 
 	<import resource="classpath:META-INF/logger-reporter.xml" />
-	<import resource="classpath:META-INF/abstract_parent_bean2.xml" />
+	<import resource="classpath:META-INF/page_base_bean.xml" />
 	
-	<ate:lastPage id="myLastPage" parent="myAbstractPageObject" />
+	<ate:lastPage id="myLastPage" parent="myBasePageObject" />
 	
 </beans>

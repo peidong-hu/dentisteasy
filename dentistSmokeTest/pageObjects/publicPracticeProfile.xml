@@ -11,24 +11,16 @@
 	<aop:aspectj-autoproxy/>
 
 	<import resource="classpath:META-INF/logger-reporter.xml" />
-	<import resource="classpath:META-INF/abstract_parent_bean2.xml" />
+	<import resource="classpath:META-INF/page_base_bean.xml" />
 
-	<ate:regularPage id="publicPracticeProfileClinicC" parent="myAbstractPageObject" dataFile="dentistSmokeTest/pageObjects/publicPracticeProfile.data.xml"/>
+	<ate:regularPage id="publicPracticeProfileClinicC" parent="myBasePageObject" dataFile="dentistSmokeTest/pageObjects/publicPracticeProfile.data.xml"/>
 
 	<ate:pagePropertyCorrectnessAsserter
-		id="publicPracticeProfilePropertyAsserter">
-		<constructor-arg ref="publicPracticeProfileClinicC" />
-		<property name="stepERValue">
-			<ref bean="publicPracticeProfileClinicCValidationValue" />
-		</property>
+		id="publicPracticeProfilePropertyAsserter" resultPage="publicPracticeProfileClinicC" stepERValue="publicPracticeProfileClinicCValidationValue">
 	</ate:pagePropertyCorrectnessAsserter>
 
 	<ate:pageElementExistenceAsserter
-		id="publicPracticeProfileClinicCElementExistenceAsserter">
-		<constructor-arg ref="publicPracticeProfileClinicC" />
-		<property name="stepERValue">
-			<ref bean="publicPracticeProfileClinicCValidationValue" />
-		</property>
+		id="publicPracticeProfileClinicCElementExistenceAsserter" resultPage="publicPracticeProfileClinicC" stepERValue="publicPracticeProfileClinicCValidationValue">
 	</ate:pageElementExistenceAsserter>
 
 	<ate:stepExpectedResultValue id="publicPracticeProfileClinicCValidationValue"

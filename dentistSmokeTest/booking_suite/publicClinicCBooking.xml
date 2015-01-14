@@ -10,7 +10,7 @@
 	<aop:aspectj-autoproxy />
 
 	<import resource="classpath:META-INF/logger-reporter.xml" />
-	<import resource="classpath:META-INF/abstract_parent_bean2.xml" />
+	<import resource="classpath:META-INF/page_base_bean.xml" />
 	<import resource="classpath:META-INF/case_base_bean.xml" />
 	<import resource="../pageObjects/publicHomePage.xml" />
 	<import resource="../pageObjects/publicPracticeProfile.xml" />
@@ -19,10 +19,7 @@
 
 	<ate:testCase id="ClinicCBooking" testCaseName="Booking at Clinic C">
 		<ate:homeStep id="openPublicHomePage" stepName="openPublicHomePage"
-			stepDescription="open my public home page" targetStep="false">
-			<property name="homepg">
-				<ref bean="publicHomePage" />
-			</property>
+			stepDescription="open my public home page" targetStep="false" pageObject="publicHomePage">
 		</ate:homeStep>
 		<ate:elementStep id="clickServiceSelector"
 			stepDescription="Click service Selector" stepName="clickServiceSelector"
@@ -56,10 +53,8 @@
 		</ate:elementStep>
 		<ate:elementStep id="clickBook_Button"
 			stepDescription="click Book_Button" stepName="Book_Button"
-			targetStep="true" myWebElement="Book_Button">
-			<property name="pageObject">
-				<ref bean="publicPracticeProfileClinicC" />
-			</property>
+			targetStep="true" myWebElement="Book_Button" pageObject="publicPracticeProfileClinicC">
+			
 			<property name="expectedResultAsserter">
 				<list>
 					<ref bean="publicPracticeProfileClinicCElementExistenceAsserter" />
@@ -67,10 +62,8 @@
 			</property>
 		</ate:elementStep>
 		<ate:lastStep id="mylaststep" stepName="mylaststep"
-			stepDescription="last step close browser" targetStep="false">
-			<property name="lastPage">
-				<ref bean="myLastPage" />
-			</property>
+			stepDescription="last step close browser" targetStep="false" pageObject="myLastPage">
+			
 		</ate:lastStep>
 	</ate:testCase>
 

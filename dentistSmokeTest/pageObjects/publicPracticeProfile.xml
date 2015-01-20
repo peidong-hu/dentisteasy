@@ -2,31 +2,45 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:ate="http://www.bigtester.org/schema/ate" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:aop="http://www.springframework.org/schema/aop"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd 
-	http://www.springframework.org/schema/aop 
-	http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
-	http://www.bigtester.org/schema/ate http://www.bigtester.org/schema/ate/ate.xsd"
-	>
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                           http://www.springframework.org/schema/beans/spring-beans-4.0.xsd 
+                           http://www.springframework.org/schema/aop 
+                           http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+                           http://www.bigtester.org/schema/ate 
+                           http://www.bigtester.org/schema/ate/ate.xsd">
+
 	<!-- this registers beans annotated with @Aspect -->
-	<aop:aspectj-autoproxy/>
+	<aop:aspectj-autoproxy />
 
 	<import resource="classpath:META-INF/logger-reporter.xml" />
 	<import resource="classpath:META-INF/page_base_bean.xml" />
 
-	<ate:regularPage id="publicPracticeProfileClinicC" parent="myBasePageObject" dataFile="dentistSmokeTest/pageObjects/publicPracticeProfile.data.xml"/>
+	<ate:regularPage id="publicPracticeProfileClinicC"
+		dataFile="dentistSmokeTest/pageObjects/publicPracticeProfile.data.xml" />
+
+	<ate:myWebElement id="clickAvailableBookingWE" elementFind="randomAvailableEF"
+		elementAction="clickAvailEA">
+	</ate:myWebElement>
+	<ate:elementFindByXpath id="randomAvailableEF"
+		findByValue="//a[@class='fc-day-grid-event fc-event fc-start fc-end']" />
+	<ate:clickAction id="clickAvailEA"/>
+	
+	<ate:myWebElement id="switchToBookingWindowWE" elementFind="windowTitleEF"
+		elementAction="windowSwitch">
+	</ate:myWebElement>
+	<ate:browserWindowFindByTitle id="windowTitleEF"
+		title="Booking" />
+	<ate:browserWindowSwitch id="windowSwitch"/>
 
 	<ate:pagePropertyCorrectnessAsserter
-		id="publicPracticeProfilePropertyAsserter" resultPage="publicPracticeProfileClinicC" stepERValue="publicPracticeProfileClinicCValidationValue">
-	</ate:pagePropertyCorrectnessAsserter>
+		id="publicPracticeProfilePropertyAsserter" resultPage="publicPracticeProfileClinicC"
+		stepERValue="publicPracticeProfileClinicCValidationValue" />
 
 	<ate:pageElementExistenceAsserter
-		id="publicPracticeProfileClinicCElementExistenceAsserter" resultPage="publicPracticeProfileClinicC" stepERValue="publicPracticeProfileClinicCValidationValue">
-	</ate:pageElementExistenceAsserter>
+		id="publicPracticeProfileClinicCElementExistenceAsserter" resultPage="publicPracticeProfileClinicC"
+		stepERValue="publicPracticeProfileClinicCValidationValue" />
 
-	<ate:stepExpectedResultValue id="publicPracticeProfileClinicCValidationValue"
-		dataValueID="publicPracticeProfileClinicCVID" parent="baseERValue" />
-
-		
-
+	<ate:stepExpectedResultValue
+		id="publicPracticeProfileClinicCValidationValue" dataValueID="publicPracticeProfileClinicCVID" />
 
 </beans>

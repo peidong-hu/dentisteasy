@@ -26,7 +26,7 @@
 			<ate:XmlTestCase id="publicLoginWrongPassword" testCaseName="dentistSmokeTest/frontend_login_suite/publicWrongPasswordLogin.xml"/> 
 		</ate:TestSuite>
 		<ate:TestSuite id="booking_suite" suiteName="booking_suite">
-			<ate:XmlTestCase id="bookingClinicC" testCaseName="dentistSmokeTest/booking_suite/publicClinicCBooking.xml"/>
+<!-- 			<ate:XmlTestCase id="bookingClinicC" testCaseName="dentistSmokeTest/booking_suite/publicClinicCBooking.xml"/> -->
 			<ate:XmlTestCase id="reviewBooking" testCaseName="dentistSmokeTest/booking_suite/reviewBooking.xml"/>
 			<ate:XmlTestCase id="updatePersonalInformation" testCaseName="dentistSmokeTest/booking_suite/updatePersonalInformation.xml"/>
 		</ate:TestSuite>

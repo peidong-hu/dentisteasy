@@ -19,6 +19,7 @@
 	<import resource="../pageObjects/publicHomePage.xml" />
 	<import resource="../pageObjects/lastPage.xml" />
 	
+	
 <!-- 	<ate:firefoxDriver  id="MyWebDriver2" profileName="dentisteasy"/>   -->
 <!-- 	<ate:chromeDriver   id="MyWebDriver2" /> -->
 <!-- 	<ate:IEDriver       id="MyWebDriver2" /> -->

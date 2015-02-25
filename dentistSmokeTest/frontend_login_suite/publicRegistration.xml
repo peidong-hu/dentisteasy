@@ -16,9 +16,8 @@
 	<import resource="classpath:META-INF/logger-reporter.xml" />
 	<import resource="classpath:META-INF/case_base_bean.xml" />
 	<import resource="../pageObjects/publicHomePage.xml" />
-	<import resource="../pageObjects/publicLoginPage.xml" />
+	<import resource="../pageObjects/publicLoginPage2.0.xml" />
 	<import resource="../pageObjects/publicLoginDashBoard.xml" />
-	<import resource="../pageObjects/publicPersonalInformation.xml" />
 	<import resource="../pageObjects/lastPage.xml" />
 <!-- 
 	<ate:firefoxDriver  id="MyWebDriver2" profileName="dentisteasy"/>  
@@ -39,55 +38,60 @@
 			stepDescription="Click login link to log in" stepName="clickLoginLink"
 			targetStep="true" elementActionDef="publicAccountLinkWE" pageObject="publicLoginPage">
 		</ate:elementStep>
-		<ate:elementStep id="publicLogin_typeUsername"
-			stepDescription="type in public user name" stepName="typeUsername"
-			targetStep="true" elementActionDef="loginUserNameWE" pageObject="publicLoginPage">
+		<ate:elementStep id="stepClickCreateAnAccount"
+			stepDescription="click Create An Account Link" stepName="clickCreateAccountLink"
+			targetStep="true" elementActionDef="createAnAccountLink" pageObject="publicLoginPage">
 		</ate:elementStep>
-		<ate:elementStep id="publicLogin_typePassword"
-			stepDescription="type in public user password" stepName="typePassword"
-			targetStep="true" elementActionDef="loginPasswordWE" pageObject="publicLoginPage">
+		<ate:elementStep id="stepTypeInFirstName"
+			stepDescription="type in first name" stepName="typeFirstName"
+			targetStep="true" elementActionDef="typeInFirstName" pageObject="publicLoginPage">
 		</ate:elementStep>
-		<ate:elementStep id="publicLogin_clickLoginButton"
-			stepDescription="click Login button to log in" stepName="clickLoginButton"
-			targetStep="true" elementActionDef="clickLoginButtonWE" pageObject="publicLoginDashBoard">
+		<ate:elementStep id="stepTypeInLastName"
+			stepDescription="type in last name" stepName="clickLoginButton"
+			targetStep="true" elementActionDef="typeInLastName" pageObject="publicLoginPage">
+		</ate:elementStep>
+		
+		<ate:elementStep id="clickTypeInEmail"
+			stepDescription="click email input" stepName="typeInEmailClick"
+			targetStep="false" elementActionDef="clickEmailInput">
+		</ate:elementStep>
+		<ate:elementStep id="stepTypeInEmail"
+			stepDescription="type in email" stepName="typeInEmail"
+			targetStep="false" elementActionDef="typeInEmail">
+		</ate:elementStep>
+		
+		
+		<ate:elementStep id="stepClickPhone"
+			stepDescription="click in phone" stepName="clickInPhone"
+			targetStep="false" elementActionDef="clickPhoneInput">
+		</ate:elementStep>
+		
+		<ate:elementStep id="stepTypeInPhone"
+			stepDescription="type in phone" stepName="typeInPhone"
+			targetStep="false" elementActionDef="typeInPhone">
+		</ate:elementStep>
+		<ate:elementStep id="stepTypeInPassword"
+			stepDescription="type in password" stepName="typeInPassword"
+			targetStep="false" elementActionDef="typeInPassword">
+		</ate:elementStep>
+		<ate:elementStep id="stepMoveCursorToAgreeBx"
+			stepDescription="move cursor to agree box" stepName="moveCursorToAgreeBox"
+			targetStep="false" elementActionDef="moveMouseToAgreeTermBox">
+		</ate:elementStep>
+		
+		<ate:elementStep id="stepClickAgreeTerm"
+			stepDescription="click term agreement box" stepName="clickTermAgreement"
+			targetStep="false" elementActionDef="agreeTerms">
+		</ate:elementStep>
+		<ate:elementStep id="stepClickSignUp"
+			stepDescription="click Sign Up" stepName="clickSignUp"
+			targetStep="true" elementActionDef="clickSignUp" pageObject="publicLoginPage">
 			<property name="expectedResultAsserter">
 				<list>
-					<ref bean="publicLoginDashBoardPropertyAsserter" />
-					<ref bean="publicLoginDashBoardElementExistenceAsserter" />
+					<ref bean="publicRegisterSuccessAsserter" />
 				</list>
 			</property>
-		</ate:elementStep>
-		
-		<ate:elementStep id="moveMouseToPersonalInformationTab"
-			stepDescription="moveMouseToPersonalInformationTab" stepName="moveMouseToPersonalInformationTab"
-			targetStep="true" elementActionDef="moveMouseToPersonalInformationTabDef">
-		</ate:elementStep>
-		<ate:elementStep id="clickPersonalInformationTab"
-			stepDescription="clickPersonalInformationTab" stepName="clickPersonalInformationTab"
-			targetStep="true" elementActionDef="clickPersonalInformationTabDef">
-		</ate:elementStep>
-		<ate:elementStep id="filloutPerosnlaDetails"
-			stepDescription="filloutPerosnlaDetails" stepName="filloutPerosnlaDetails"
-			targetStep="false" elementActionDef="filloutPerosnlaDetailsDef">
-		</ate:elementStep>
-		<ate:elementStep id="cursorMoveToSavePersonalInfoButton"
-			stepDescription="cursorMoveToSavePersonalInfoButton" stepName="cursorMoveToSavePersonalInfoButton"
-			targetStep="true" elementActionDef="cursorMoveToSavePersonalInfoButtonDef">
-		</ate:elementStep>
-		
-		<ate:elementStep id="clickSavePersonalInfoButton"
-			stepDescription="clickSavePersonalInfoButton" stepName="clickSavePersonalInfoButton"
-			targetStep="true" elementActionDef="clickSavePersonalInfoButtonDef">
-			<property name="expectedResultAsserter">
-			<list>
-				<ref bean="savePersonalInfoElementExistenceAsserter"/>
-			</list>
-			</property>
-		</ate:elementStep>
-		
-		<ate:elementStep id="publicLogin_clickLogoutLink"
-			stepDescription="logout patient" stepName="logoutPatient"
-			targetStep="false" elementActionDef="logoutPatientWE">
+			
 		</ate:elementStep>
 		<ate:lastStep id="mylaststep" stepName="mylaststep"
 			stepDescription="last step close browser" targetStep="false" pageObject="myLastPage">

@@ -22,13 +22,34 @@
 		
 <!-- click my profile definition -->
 	<ate:elementActionDef id="clickMyProfileLinkEAD" elementFind="myProfileEF" elementAction="myProfileClickEA"/>
-	<ate:elementFindByXpath id="myProfileEF" findByValue="//a[@href='#/prfoile']" />
+	<ate:elementFindByXpath id="myProfileEF" findByValue="//a[@href='#/profile']" />
 	<ate:clickAction id="myProfileClickEA"  />
 	
 	
 <!-- click services tab definition -->
-	<ate:elementActionDef id="clickServicesTabEAD" elementFind="serviceTabEF" elementAction="ser"/>
-	<ate:elementFindByXpath id="logoutLink" findByValue="//a[@href='/logoutPractice']" />
-	<ate:clickAction id="logoutAdminEA"  />
+	<ate:elementActionDef id="clickServicesTabEAD" elementFind="serviceTabEF" elementAction="serviceTabEA"/>
+	<ate:elementFindByXpath id="serviceTabEF" findByValue="//a[@href='/#tab_1_2']" />
+	<ate:clickAction id="serviceTabEA"  />
+	
+	<!-- click services tab definition -->
+	<ate:elementActionDef id="clickAddServiceButtonEAD" elementFind="addServiceEF" elementAction="addServerEA"/>
+	<ate:elementFindByXpath id="addServiceEF" findByValue="//a[@ng-click='addPracticeService()']" />
+	<ate:clickAction id="addServerEA"  />
+	
+	<!-- click new service name to edit definition -->
+	<ate:elementActionDef id="clickToEditNewServiceEAD" elementFind="newServiceNameEF" elementAction="clicNewServiceEA"/>
+	<ate:elementFindByXpath id="newServiceNameEF" findByValue="//h2[contains(@class,'editable-empty')]" />
+	<ate:clickAction id="clicNewServiceEA"  />
+	
+	<!-- click services selection definition -->
+	<ate:elementActionDef id="clickNewServiceSelectionEAD" elementFind="newServiceSelectionEF" elementAction="newServiceSelectionClickEA"/>
+	<ate:elementFindByXpath id="newServiceSelectionEF" findByValue="//select[contains(@class,'editable-has-buttons')]" />
+	<ate:clickAction id="newServiceSelectionClickEA"  />
+	
+	<!-- click services tab definition -->
+	<ate:elementActionDef id="clickDeleteNewlyCreatedServiceEAD" elementFind="newlyCreatedDeleteEF" elementAction="clickNewCreatedDeleteEA"/>
+	<ate:elementFindByXpath id="newlyCreatedDeleteEF" findByValue="//a[@ng-click='deletePracticeService(service)']" indexOfSameElements="-1"/>
+	<ate:clickAction id="clickNewCreatedDeleteEA"  />
+	
 	
 </beans>

@@ -1,17 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataset>
 <!-- public english home page -->
-<STEPEXPECTEDRESULT  ELEMENTFINDBY="ID"	ELEMENTFINDBYVALUE="dashboard-report-range" ASSERTPRIORITY="HIGH"	PAGENAME="homepage"	STEPERSETID="publicHomePageVID"	TESTDATACONTEXT_IDCOLUMN="5"	/>
-<STEPEXPECTEDRESULT   ELEMENTFINDBY="XPATH"	ELEMENTFINDBYVALUE="//div[@class='service-box-heading']" ASSERTPRIORITY="HIGH"	PAGENAME="homepage"	STEPERSETID="publicHomePageVID"	TESTDATACONTEXT_IDCOLUMN="5"	/>
-<STEPEXPECTEDRESULT   ELEMENTFINDBY="ID"	ELEMENTFINDBYVALUE="srv_select"	ASSERTPRIORITY="HIGH" PAGENAME="homepage"	STEPERSETID="publicHomePageVID"	TESTDATACONTEXT_IDCOLUMN="5"	/>
-<STEPEXPECTEDRESULT   ELEMENTFINDBY="LINKTEXT"	ELEMENTFINDBYVALUE="My Account"	ASSERTPRIORITY="HIGH" PAGENAME="homepage"	STEPERSETID="publicHomePageVID"	TESTDATACONTEXT_IDCOLUMN="5"	/>
-<STEPEXPECTEDRESULT   ELEMENTFINDBY="ID"	ELEMENTFINDBYVALUE="map_canvas"	ASSERTPRIORITY="HIGH" PAGENAME="homepage"	STEPERSETID="publicHomePageVID"	TESTDATACONTEXT_IDCOLUMN="5"	/>
-<STEPEXPECTEDRESULT   ELEMENTFINDBY="XPATH"	ELEMENTFINDBYVALUE="//div[@title='Zoom in']"	ASSERTPRIORITY="HIGH" PAGENAME="homepage"	STEPERSETID="publicHomePageVID"	TESTDATACONTEXT_IDCOLUMN="5"	/>
+<STEPERELEMENTEXISTENCE FirstTimeExecution= "Yes" ELEMENTFINDBY="ID"	ELEMENTFINDBYVALUE="dashboard-report-range" ASSERTPRIORITY="HIGH"	PAGENAME="homepage"	STEPERSETID="publicHomePageVID"	TESTDATACONTEXT_IDCOLUMN="5"	/>
+<STEPERELEMENTEXISTENCE FirstTimeExecution= "Yes"   ELEMENTFINDBY="XPATH"	ELEMENTFINDBYVALUE="//div[@class='service-box-heading']" ASSERTPRIORITY="HIGH"	PAGENAME="homepage"	STEPERSETID="publicHomePageVID"	TESTDATACONTEXT_IDCOLUMN="5"	/>
+<STEPERELEMENTEXISTENCE FirstTimeExecution= "Yes"   ELEMENTFINDBY="ID"	ELEMENTFINDBYVALUE="srv_select"	ASSERTPRIORITY="HIGH" PAGENAME="homepage"	STEPERSETID="publicHomePageVID"	TESTDATACONTEXT_IDCOLUMN="5"	/>
+<STEPERELEMENTEXISTENCE FirstTimeExecution= "Yes"   ELEMENTFINDBY="LINKTEXT"	ELEMENTFINDBYVALUE="My Account"	ASSERTPRIORITY="HIGH" PAGENAME="homepage"	STEPERSETID="publicHomePageVID"	TESTDATACONTEXT_IDCOLUMN="5"	/>
+<STEPERELEMENTEXISTENCE FirstTimeExecution= "Yes"   ELEMENTFINDBY="ID"	ELEMENTFINDBYVALUE="map_canvas"	ASSERTPRIORITY="HIGH" PAGENAME="homepage"	STEPERSETID="publicHomePageVID"	TESTDATACONTEXT_IDCOLUMN="5"	/>
+<STEPERELEMENTEXISTENCE FirstTimeExecution= "Yes"   ELEMENTFINDBY="XPATH"	ELEMENTFINDBYVALUE="//div[@title='Zoom in']"	ASSERTPRIORITY="HIGH" PAGENAME="homepage"	STEPERSETID="publicHomePageVID"	TESTDATACONTEXT_IDCOLUMN="5"	/>
 
-<ElementInputData ID="1" dataName="UserName" dataValue="gocarpool@hotmail.com" testDataContext_idColumn="1" />
-<ElementInputData ID="2" dataName="UserName" dataValue="peidonghu2x" testDataContext_idColumn="1" />
-<ElementInputData ID="3" dataName="Password" dataValue="test1" testDataContext_idColumn="1" sunnyParentData_id="1"/>
-<ElementInputData ID="4" dataName="Password" dataValue="pa2222" testDataContext_idColumn="1" sunnyParentData_id="1"/>
-<ElementInputData ID="5" dataName="Location_Value" dataValue="Montreal, QC, Canada" testDataContext_idColumn="1" sunnyParentData_id="1"/>
+<STEPERELEMENTEXISTENCE FirstTimeExecution= "No"   ELEMENTFINDBY="ID"	ELEMENTFINDBYVALUE="map_canvas"	ASSERTPRIORITY="HIGH" PAGENAME="homepage"	STEPERSETID="publicHomePageVID"	TESTDATACONTEXT_IDCOLUMN="5"	repeatStepName="repeatHomeStep" iteration="1"/>
+
+<STEPERELEMENTEXISTENCE FirstTimeExecution= "No"   ELEMENTFINDBY="XPATH"	ELEMENTFINDBYVALUE="//div[@class='service-box-heading']" ASSERTPRIORITY="HIGH"	PAGENAME="homepage"	STEPERSETID="publicHomePageVID"	TESTDATACONTEXT_IDCOLUMN="5"	repeatStepName="repeatHomeStep2"  iteration="1"/>
+
+<STEPERELEMENTEXISTENCE FirstTimeExecution= "No"   ELEMENTFINDBY="LINKTEXT"	ELEMENTFINDBYVALUE="My Account"	ASSERTPRIORITY="HIGH" PAGENAME="homepage"	STEPERSETID="publicHomePageVID"	TESTDATACONTEXT_IDCOLUMN="5"	repeatStepName="repeatHomeStep" repeatStepExternalLoopPath="repeatHomeStep2" iteration="1"/>
+
+<StepErPageProperty FirstTimeExecution= "Yes"  ASSERTPROPERTY="Page_Title" ASSERTVALUE="DentistAround - A dentist right here, right now"	PAGENAME="homepage"	STEPERSETID="publicHomePageVID"	TESTDATACONTEXT_IDCOLUMN="8"	ASSERTPRIORITY="HIGH"/>
+
+<ElementInputData FirstTimeExecution= "Yes" stepEIDsetID="1" dataName="UserName" dataValue="gocarpool@hotmail.com" testDataContext_idColumn="1" />
+<ElementInputData FirstTimeExecution= "Yes" stepEIDsetID="2" dataName="UserName" dataValue="peidonghu2x" testDataContext_idColumn="1" />
+<ElementInputData FirstTimeExecution= "Yes" stepEIDsetID="3" dataName="Password" dataValue="test1" testDataContext_idColumn="1"/>
+<ElementInputData FirstTimeExecution= "Yes" stepEIDsetID="4" dataName="Password" dataValue="pa2222" testDataContext_idColumn="1" />
+<ElementInputData FirstTimeExecution= "Yes" stepEIDsetID="5" dataName="Location_Value" dataValue="Montreal, QC, Canada" testDataContext_idColumn="1" />
+
+
+<ElementInputData FirstTimeExecution= "No" stepEIDsetID="1" dataName="UserName" dataValue="gocarpool@hotmail.com" testDataContext_idColumn="1" repeatStepName="repeatLoginStep" iteration="1"/>
+<ElementInputData FirstTimeExecution= "No" stepEIDsetID="3" dataName="Password" dataValue="test1" testDataContext_idColumn="1" repeatStepName="repeatLoginStep" iteration="1"/>
+
+<ElementInputData FirstTimeExecution= "No" stepEIDsetID="1" dataName="UserName" dataValue="gocarpool@hotmail.com" testDataContext_idColumn="1" repeatStepName="repeatLoginStep" repeatStepExternalLoopPath="repeatLoginStep2" iteration="1"/>
+<ElementInputData FirstTimeExecution= "No" stepEIDsetID="3" dataName="Password" dataValue="test1" testDataContext_idColumn="1" repeatStepName="repeatLoginStep" repeatStepExternalLoopPath="repeatLoginStep2" iteration="1"/>
+
 
 </dataset>

@@ -65,7 +65,7 @@
 	<ate:sendKeysAction id="Location_Input_EA"
 		dataValue="location_value" />
 
-	<ate:stepInputDataValue id="location_value"
+	<ate:fileDataHolder id="location_value"
 		dataValueID="5" />
 
 	<!-- <ate:runTimeDataHolder id="bookingSmsCode" dataHolderType="ManualAssigned" -->
@@ -109,15 +109,15 @@
 
 	<ate:pagePropertyCorrectnessAsserter
 		id="publicHomePagePropertyAsserter" resultPage="publicHomePage"
-		stepERValue="publicHomePageValidationValue" />
+		stepERValue="publicHomePageVID" />
 
 	<ate:pageElementExistenceAsserter
 		id="publicHomePageElementExistenceAsserter" resultPage="publicHomePage"
-		stepERValue="publicHomePageValidationValue" />
+		stepERValue="publicHomePageVID" />
 
 
-	<ate:stepExpectedResultValue id="publicHomePageValidationValue"
-		dataValueID="publicHomePageVID" />
+<!-- 	<ate:stepExpectedResultValue id="publicHomePageValidationValue" -->
+<!-- 		dataValueID="publicHomePageVID" /> -->
 
 
 </beans>

@@ -41,8 +41,8 @@
 
 		</ate:TestSuite>
 		<ate:TestSuite id="booking_suite" suiteName="booking_suite">
-<!-- 			<ate:XmlTestCase id="bookingClinicC" -->
-<!-- 				testCaseFilePathName="dentistSmokeTest/booking_suite/publicClinicCBooking.xml" /> -->
+			<ate:XmlTestCase id="bookingClinicC"
+				testCaseFilePathName="dentistSmokeTest/booking_suite/publicClinicCBooking.xml" />
 
 			<ate:XmlTestCase id="reviewBooking"
 				testCaseFilePathName="dentistSmokeTest/booking_suite/reviewBooking.xml" />
